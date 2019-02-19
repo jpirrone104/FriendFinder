@@ -29,9 +29,9 @@
                 <br>
                 <hr>
                
-                <h4>I love to spend time outdoors</h4>
+                <h4>I love to spend time outdoors.</h4>
                 <select class="chosen-select" id="q1">
-                    <option value=""></option>
+                    <option value="" disabled selected>Select Option</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -41,9 +41,9 @@
                 <br>
                 <br>
                 <br>
-                <h4>An ideal night out includes a fancy dinner, dressing up, and dancing the night away at an exclusive nightclub.</h4>
+                <h4>I love to dance.</h4>
                 <select class="chosen-select" id="q2">
-                    <option value=""></option>
+                    <option value="" disabled selected>Select Option</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -54,8 +54,8 @@
                 <br>
                 <br>
                 <h4>Unnecessary possessions are unnecessary burdens.</h4>
-                <select class="chosen-select" id="q2">
-                    <option value=""></option>
+                <select class="chosen-select" id="q3">
+                    <option value="" disabled selected>Select Option</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -67,8 +67,8 @@
                 <br>
                 <br>
                 <h4>Before you can help others, you must help yourself.</h4>
-                <select class="chosen-select" id="q2">
-                    <option value=""></option>
+                <select class="chosen-select" id="q4">
+                    <option value="" disabled selected>Select Option</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -79,8 +79,8 @@
                 <br>
                 <br>
                 <h4>Game of...what? I'm sorry, I don't have a television.</h4>
-                <select class="chosen-select" id="q2">
-                    <option value=""></option>
+                <select class="chosen-select" id="q5">
+                    <option value="" disabled selected>Select Option</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -91,8 +91,8 @@
                 <br><br>
                 <br>
                 <h4>A clean home is a happy home.</h4>
-                <select class="chosen-select" id="q2">
-                    <option value=""></option>
+                <select class="chosen-select" id="q6">
+                    <option value="" disabled selected>Select Option</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -103,8 +103,8 @@
                 <br><br>
                 <br>
                 <h4>I love to read books in my free time.</h4>
-                <select class="chosen-select" id="q2">
-                    <option value=""></option>
+                <select class="chosen-select" id="q7">
+                    <option value="" disabled selected>Select Option</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -115,8 +115,8 @@
                 <br><br>
                 <br>
                 <h4>I love listening to podcasts.</h4>
-                <select class="chosen-select" id="q2">
-                    <option value=""></option>
+                <select class="chosen-select" id="q8">
+                    <option value="" disabled selected>Select Option</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -127,8 +127,8 @@
                 <br><br>
                 <br>
                 <h4>Laughter is the best medicine.</h4>
-                <select class="chosen-select" id="q2">
-                    <option value=""></option>
+                <select class="chosen-select" id="q9">
+                    <option value="" disabled selected>Select Option</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -139,8 +139,8 @@
                 <br><br>
                 <br>
                 <h4>The moon landing was a hoax.</h4>
-                <select class="chosen-select" id="q2">
-                    <option value=""></option>
+                <select class="chosen-select" id="q10">
+                    <option value="" disabled selected>Select Option</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -152,11 +152,9 @@
             </div>
             <br>
             <div>
-                <a href="home.html">
-                    <button type="button" class="btn btn-danger btn-large btn-block" style="background-color:red" id="homebtn">
-                        <h4>Submit</h4>
-                    </button>
-                </a>
+                <button type="button" class="btn btn-danger btn-large btn-block" style="background-color:red" id="submitbtn">
+                    <h4>Submit</h4>
+                </button>
             </div>
             
             <footer class="footer">
@@ -169,5 +167,61 @@
                 </div>
             </footer>
         </div>   
+        <div id="friendModal" class="modal" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Your Closest Match</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <h2 id="friendName"></h2>
+                    <img id="friendImage" src="">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <a href="/survey"><button type="button" class="btn btn-primary">Try again</button></a>
+                </div>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript">
+           
+            $("#submitbtn").on("click", function(event) {
+              event.preventDefault();
+        
+             var surveyData = {
+                    name: $("#name").val(),
+                    photo: $("#photo").val(),
+                    scores: [
+                        $("#q1").val(),
+                        $("#q2").val(),
+                        $("#q3").val(),
+                        $("#q4").val(),
+                        $("#q5").val(),
+                        $("#q6").val(),
+                        $("#q7").val(),
+                        $("#q8").val(),
+                        $("#q9").val(),
+                        $("#q10").val()
+                    ]
+                    };
+        
+                // AJAX post the data to the friends API.
+                $.post("/api/friends", surveyData, function(data) {
+        
+                  // Grab the result from the AJAX post so that the best match's name and photo are displayed.
+                  $("#friendName").text(data.name);
+                  $("#friendImage").attr("src", data.photo);
+        
+                  // Show the modal with the best match
+                  $("#friendModal").modal("toggle");
+        
+                });
+            
+            });
+          </script>
     </body>
 </html>
