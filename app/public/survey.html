@@ -189,9 +189,10 @@
         <script type="text/javascript">
            
             var currentURL = window.location.origin;
+            console.log(currentURL)
             // Capture the form inputs
             $("#submitbtn").on("click", function(){
-             //event.preventDefault();
+             event.preventDefault();
                 if( ($('#name').val().trim() !== "") && ($('#photo').val().trim() !== "") ) {
                     // Create an object for the user's data
                     var userData = {
@@ -203,7 +204,7 @@
                     console.log(userData);
                     console.log(currentURL);
                     // AJAX post the data to the friends API.
-                    $.post(currentURL + "/api/friends", userData, function(data){
+                    $.post(currentURL + '/api/friends', userData, function(data){
                       // Grab the result from the AJAX post so that the best match's name and photo are displayed.
                       $("#friendName").text(data.name);
                       $("#friendImg").attr("src", data.photo);
