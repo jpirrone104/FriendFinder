@@ -12,6 +12,7 @@ module.exports = function(app) {
     };
 
     app.post("/api/friends", function (req, res) {
+      friendsData.push(req.body);
       // surveyData is the user that filled out the survey
     //   var surveyData = req.body;
 

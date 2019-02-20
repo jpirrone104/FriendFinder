@@ -3,8 +3,7 @@
     <head>
         <title>Friend Finder</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script src="/server.js"></script>
+        <script src="https://code.jquery.com/jquery.js"></script>
         <!-- <ion-icon src="/path/to/external/file.svg"></ion-icon> -->
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     </head>
@@ -181,7 +180,7 @@
                     <img id="friendImage" src="">
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" id="closeModal">Close</button>
                     <a href="/survey"><button type="button" class="btn btn-primary">Try again</button></a>
                 </div>
                 </div>
@@ -189,39 +188,44 @@
         </div>
         <script type="text/javascript">
            
-            $("#submitbtn").on("click", function(event) {
-              event.preventDefault();
-        
-             var surveyData = {
-                    name: $("#name").val(),
-                    photo: $("#photo").val(),
-                    scores: [
-                        $("#q1").val(),
-                        $("#q2").val(),
-                        $("#q3").val(),
-                        $("#q4").val(),
-                        $("#q5").val(),
-                        $("#q6").val(),
-                        $("#q7").val(),
-                        $("#q8").val(),
-                        $("#q9").val(),
-                        $("#q10").val()
-                    ]
-                    };
-        
-                // AJAX post the data to the friends API.
-                $.post("/api/friends", surveyData, function(data) {
-        
-                  // Grab the result from the AJAX post so that the best match's name and photo are displayed.
-                  $("#friendName").text(data.name);
-                  $("#friendImage").attr("src", data.photo);
-        
-                  // Show the modal with the best match
-                  $("#friendModal").modal("toggle");
-        
-                });
-            
+            var currentURL = window.location.origin;
+            // Capture the form inputs
+            $("#submitbtn").on("click", function(){
+             //event.preventDefault();
+                if( ($('#name').val().trim() !== "") && ($('#photo').val().trim() !== "") ) {
+                    // Create an object for the user's data
+                    var userData = {
+                        name: $("#name").val(),
+                        photo: $("#photo").val(),
+                        scores: [$("#q1").val(), $("#q2").val(), $("#q3").val(), $("#q4").val(), $("#q5").val(), $("#q6").val(), $("#q7").val(), $("#q8").val(), $("#q9").val(), $("#q10").val(), ]
+                    }
+                    // AJAX post the data to the friends API.
+                    $.post(currentURL + "/api/friends", userData, function(data){
+                      // Grab the result from the AJAX post so that the best match's name and photo are displayed.
+                      $("#friendName").text(data.name);
+                      $("#friendImg").attr("src", data.photo);
+                      // Show the modal with the best match
+                      $("#friendModal").modal('toggle');
+                      // clear the input fields in the form
+                      $("#name").val("");
+                      $("#photo").val("");
+                    });
+                } else {
+                    $(".modal-title").text("Missing required information");
+                    $(".modal-body").html("<h3>Please complete the form before submitting</h3>");
+                    //$("#friendModal").modal('toggle');
+                }
+                return false;
             });
+            // modal logic
+            $("#closeModal").on("click", function() {
+                $.get('/',function(req,res){
+                location.replace(res);
+                })
+            });
+            
+        
+    
           </script>
     </body>
 </html>
