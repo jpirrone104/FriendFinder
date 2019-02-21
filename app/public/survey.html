@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Friend Finder</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery.js"></script>
+        <!-- <ion-icon src="/path/to/external/file.svg"></ion-icon> -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="container">
+            <div class="jumbotron">
+                <h1><i class="fa fa-heart" style="color:red" aria-hidden="true"></i> Friend Finder</h1>
+                <hr>
+                <h2>
+                    Rate your sentitment of each of the below statements from 1-5. <br>
+                    Where choosing a 1 means: "That is definitely <i>not</i> me!",<br>
+                    and choosing a 5 means: "That is <i>so</i> me!"
+                </h2>
+                <br>
+            </div>
+            <div class="container">
+                <h3><strong>Your Details:</strong></h3>
+                <h3>Name (Required)</h3>
+                <input type="text" id="name" class="form-control" required>
+                <h3>Link to Photo Image (Required)</h3>
+                <input type="text" id="photo" class="form-control" required>
+                <br>
+                <hr>
+               
+                <h4>I love to spend time outdoors.</h4>
+                <select class="chosen-select" id="q1">
+                    <option value="" disabled selected>Select Option</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+                <br>
+                <br>
+                <br>
+                <h4>I love to dance.</h4>
+                <select class="chosen-select" id="q2">
+                    <option value="" disabled selected>Select Option</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+                <br>
+                <br>
+                <br>
+                <h4>Unnecessary possessions are unnecessary burdens.</h4>
+                <select class="chosen-select" id="q3">
+                    <option value="" disabled selected>Select Option</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+                <br>
+                <br>
+                <br>
+                <br>
+                <h4>Before you can help others, you must help yourself.</h4>
+                <select class="chosen-select" id="q4">
+                    <option value="" disabled selected>Select Option</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+                <br>
+                <br>
+                <br>
+                <h4>Game of...what? I'm sorry, I don't have a television.</h4>
+                <select class="chosen-select" id="q5">
+                    <option value="" disabled selected>Select Option</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+                <br>
+                <br><br>
+                <br>
+                <h4>A clean home is a happy home.</h4>
+                <select class="chosen-select" id="q6">
+                    <option value="" disabled selected>Select Option</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+                <br>
+                <br><br>
+                <br>
+                <h4>I love to read books in my free time.</h4>
+                <select class="chosen-select" id="q7">
+                    <option value="" disabled selected>Select Option</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+                <br>
+                <br><br>
+                <br>
+                <h4>I love listening to podcasts.</h4>
+                <select class="chosen-select" id="q8">
+                    <option value="" disabled selected>Select Option</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+                <br>
+                <br><br>
+                <br>
+                <h4>Laughter is the best medicine.</h4>
+                <select class="chosen-select" id="q9">
+                    <option value="" disabled selected>Select Option</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+                <br>
+                <br><br>
+                <br>
+                <h4>The moon landing was a hoax.</h4>
+                <select class="chosen-select" id="q10">
+                    <option value="" disabled selected>Select Option</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+                <br>
+                <br>
+            </div>
+            <br>
+            <div>
+                <button type="button" class="btn btn-danger btn-large btn-block" style="background-color:red" id="submitbtn">
+                    <h4>Submit</h4>
+                </button>
+            </div>
+            
+            <footer class="footer">
+                <div class="container">
+                    <p>
+                        <a href="/api/friends">API Friends List</a>
+                            | 
+                        <a href="https://github.com/jpirrone104/FriendFinder">GitHub Repository</a>
+                    </p>
+                </div>
+            </footer>
+        </div>   
+        <div id="friendModal" class="modal" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Your Closest Match</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <h2 id="friendName"></h2>
+                    <img id="friendImage" src="">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" id="closeModal">Close</button>
+                    <a href="/survey"><button type="button" class="btn btn-primary">Try again</button></a>
+                </div>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript">
+           
+            
+        
+            // Capture the form inputs
+            $("#submitbtn").on("click", function(){
+             event.preventDefault();
+                if( ($('#name').val().trim() !== "") && ($('#photo').val().trim() !== "") ) {
+                    // Create an object for the user's data
+                    var userData = {
+                        name: $("#name").val(),
+                        photo: $("#photo").val(),
+                        scores: [$("#q1").val(), $("#q2").val(), $("#q3").val(), $("#q4").val(), $("#q5").val(), $("#q6").val(), $("#q7").val(), $("#q8").val(), $("#q9").val(), $("#q10").val(), ]
+                    }
+
+                    console.log(userData);
+                    //console.log(currentURL + "/api/friends");
+                    // AJAX post the data to the friends API.
+                    $.post("/api/friends", userData, function(data){
+                      // Grab the result from the AJAX post so that the best match's name and photo are displayed.
+                      $("#friendName").text(data.name);
+                      $("#friendImg").attr("src", data.photo);
+                      // Show the modal with the best match
+                      $("#friendModal").modal('toggle');
+                      // clear the input fields in the form
+                      $("#name").val("");
+                      $("#photo").val("");
+                    });
+                } else {
+                    $(".modal-title").text("Missing required information");
+                    $(".modal-body").html("<h3>Please complete the form before submitting</h3>");
+                    //$("#friendModal").modal('toggle');
+                }
+                return false;
+            });
+            // modal logic
+            $("#closeModal").on("click", function() {
+                $.get('/',function(req,res){
+                location.replace(res);
+                })
+            });
+            
+        
+    
+          </script>
+    </body>
+</html>
